@@ -1,17 +1,39 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar style="--background:  #951a1d; color: white;">
     <ion-title>
-      Tab 1
+      Мои объекты
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content *ngIf = "objectsArray">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="8" offset-md="2">
+        
+        <ion-card  *ngFor ="let object of objectsArray; index as num">
+          <ion-card-header (click) = "toggleCard(num)">
+            <ion-card-title>
+              {{object.name}}
+              <!-- <ion-icon color="danger" name="home"></ion-icon> -->
+              <ion-icon *ngIf="object.state =='Исправен'" color="success" name="home"></ion-icon>
+              <ion-icon *ngIf="object.state =='Тревога'" color="danger" name="alert-circle"></ion-icon>
+              <ion-icon *ngIf="object.state=='Неисправен'" name="construct"></ion-icon>
+            </ion-card-title>
+            <ion-card-subtitle>{{object.address}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content (click) = "toggleCard(num)">
+            <div  [ngClass]="getClassByStatus(object.state)">
+              {{object.state}}</div>
+          </ion-card-content>
+          <ion-card-content *ngIf = "cardArray[num]">
+            <ion-button (click) = "openEventJournalModal(num)" expand="full" style="--background:  #951a1d; margin-bottom:15px;">Журнал событий</ion-button>
+            <ion-button expand="full" style="--background:  #951a1d; margin-bottom:15px;">Проверить КТС</ion-button>
+            <ion-button (click) = "onGuard(num)" expand="full" style="--background:  #951a1d; margin-bottom:15px;">Поставить на охрану</ion-button>
+            <ion-button (click) = "offGuard(num)" expand="full" style="--background:  #951a1d; margin-bottom:15px;">Снять с охраны</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

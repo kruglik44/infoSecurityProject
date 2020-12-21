@@ -1,32 +1,22 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GetDataService } from '../tab2/get-data.service';
+import { GetDataService } from 'src/app/tab2/get-data.service';
 
 @Component({
-  selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+  selector: 'app-auth',
+  templateUrl: './auth.component.html',
+  styleUrls: ['./auth.component.scss'],
 })
-export class Tab3Page {
+export class AuthComponent 
+{
 
  
   constructor(private http: HttpClient,
               private setRoleService: GetDataService,
               private router: Router) {
-
-              this.setRoleService.getUsers().subscribe(users =>{
-                console.log(users);
-                console.log(this.setRoleService.user);
-                this.userToShow = users[this.setRoleService.user - 1];
-                console.log(this.userToShow);
-              })
   }
   
-  userToShow;
-
-  user;
-
   email: string;
   password: string;
 
@@ -43,10 +33,6 @@ export class Tab3Page {
   image = {
     "url": ""
   }
-
-  
-
-  
 
   createList(){
     console.log(this.myHeader);
@@ -65,7 +51,7 @@ export class Tab3Page {
   sendPhotoToCheck(){
     this.http.post("https://dmitrykruglov.cognitiveservices.azure.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&recognitionModel=recognition_03&returnRecognitionModel=false&detectionModel=detection_02&faceIdTimeToLive=86400", this.image,  {headers: {'Ocp-Apim-Subscription-Key':'d6c119b4794a4929b94dc8c75a60c24c', 'Host': 'dmitrykruglov.cognitiveservices.azure.com', 'Content-Type': 'application/json'}})
       .subscribe(response => {
-        console.log(response[0].faceId);
+        console.log(response[0].faceId );
         this.currentVar = response[0].faceId;
         let checkImage = {
           "faceId": this.currentVar,
@@ -76,7 +62,7 @@ export class Tab3Page {
         this.http.post("https://dmitrykruglov.cognitiveservices.azure.com/face/v1.0/findsimilars", checkImage, {headers: {'Ocp-Apim-Subscription-Key':'d6c119b4794a4929b94dc8c75a60c24c', 'Host': 'dmitrykruglov.cognitiveservices.azure.com', 'Content-Type': 'application/json'}})
         .subscribe(result => {
           console.log(result[0].persistedFaceId, result[0].confidence);
-          if (result[0].persistedFaceId == this.yagFaceId){
+          if (result[0].persistedFaceId == this.yagFaceId  && this.email == "admin1337" && this.password =="admin1337"){
             console.log("login as Dima Yagodarov");
             this.image.url = "";
             this.password = "";
@@ -85,7 +71,7 @@ export class Tab3Page {
             this.router.navigate(['tabs/tab3']);
             
           }
-          else if (result[0].persistedFaceId == this.krugFaceId){
+          else if (result[0].persistedFaceId == this.krugFaceId && this.email == "dima4444" && this.password =="dima4444"){
             console.log("login as Dima Kruglov");
             this.image.url = "";
             this.password = "";
@@ -104,9 +90,7 @@ export class Tab3Page {
       })
   }
   
-  logout(){
-    this.router.navigate(['tabs/tab3/login']);
-  }
+
   login(){
     this.sendPhotoToCheck();
   }

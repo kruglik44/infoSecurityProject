@@ -1,0 +1,85 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background:  #951a1d; color: white;">
+    <ion-title>
+      Сообщения
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-row *ngFor = "let message of messageArray">
+          <ion-col  *ngIf ="message.to_id != '1'" size-xs="5"></ion-col>
+          <ion-col size-xs="7"  *ngIf ="message.to_id != '1'">
+            <ion-card >
+              <ion-card-content>
+                {{message.content}}
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col size-xs="7"  *ngIf = "message.to_id =='1'">
+            <ion-card>
+              <ion-card-content>
+                {{message.content}}
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!-- <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-row *ngFor = "let message of messageArray">
+          <ion-col  *ngIf ="message.to_id != userId" size-xs="5"></ion-col>
+          <ion-col size-xs="7"  *ngIf ="message.to_id != 'userId'">
+            <ion-card >
+              <ion-card-content>
+                {{message.content}}
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col size-xs="7"  *ngIf = "message.to_id =='userId'">
+            <ion-card>
+              <ion-card-content>
+                {{message.content}}
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->
+
+
+
+
+
+
+<ion-footer>
+  <ion-row>
+    <ion-col size-md="6" offset-md="3">
+      <ion-row>
+        <ion-col size-xs="10">
+          <ion-item>
+            <ion-label position="stacked">Сообщение</ion-label>
+            <ion-input [(ngModel)] = "messageToSend"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size-xs="2">
+          <ion-button (click) = "send(messageToSend)"><ion-icon name="send-outline"></ion-icon></ion-button>
+          <ion-button (click) = "update()"><ion-icon name="refresh-outline"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-footer>

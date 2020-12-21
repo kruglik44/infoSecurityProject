@@ -1,0 +1,149 @@
+.span-project {
+    border-left: solid 5px rgb(255, 199, 30);
+    border-right: solid 1px rgb(255, 199, 30);
+    border-top: solid 1px rgb(255, 199, 30);
+    border-bottom: solid 1px rgb(255, 199, 30);
+    background-color: rgb(255, 243, 205);
+    border-radius: 3px;
+    padding: 4px;
+  }
+  
+  .color-number {
+    color: #1E88E5;
+    cursor: pointer;
+    font-size: 14px !important;
+  }
+  .link-text {
+    color: #951a1d;
+    cursor: pointer;
+    font-size: 14px !important;
+  }
+  
+  .color-date {
+    color: #686666;
+    font-size: 14px !important;
+  }
+  
+  .span-project-expired {
+    border-left: solid 5px rgb(229, 104, 116);
+    border-right: solid 1px rgb(229, 104, 116);
+    border-top: solid 1px rgb(229, 104, 116);
+    border-bottom: solid 1px rgb(229, 104, 116);
+    background-color: rgb(255, 225, 227);
+    border-radius: 3px;
+    color: black !important;
+    padding: 4px;
+  }
+  .on-signature-project {
+    border-left: solid 5px rgb(30, 136, 229);
+    border-right: solid 1px rgb(30, 136, 229);
+    border-top: solid 1px rgb(30, 136, 229);
+    border-bottom: solid 1px rgb(30, 136, 229);
+    background-color: rgb(217, 235, 255);
+    border-radius: 3px;
+    padding: 4px;
+    color: black !important;
+  }
+  .paused-project {
+    border-left: solid 5px rgb(171, 113, 208);
+    border-right: solid 1px rgb(171, 113, 208);
+    border-top: solid 1px rgb(171, 113, 208);
+    border-bottom: solid 1px rgb(171, 113, 208);
+    background-color: rgb(238, 227, 246);
+    border-radius: 3px;
+    padding: 4px;
+    color: black !important;
+  }
+  .acting-project {
+    border-left: solid 5px rgb(95, 189, 116);
+    border-right: solid 1px rgb(95, 189, 116);
+    border-top: solid 1px rgb(95, 189, 116);
+    border-bottom: solid 1px rgb(95, 189, 116);
+    background-color: rgb(223, 242, 227);
+    border-radius: 3px;
+    padding: 4px;
+    color: black !important;
+  }
+  .status-grey {
+    background-color: #ECEFF1 !important;
+    border-left: 5px solid #B0BEC5;
+    border-right: 1px solid #B0BEC5;
+    border-top: 1px solid #B0BEC5;
+    border-bottom: 1px solid #B0BEC5;
+    border-radius: 3px;
+    padding: 4px;
+    color: black !important;
+  }
+  .status-table {
+    border-radius: 2px;
+    /*height: 30px;*/
+    /*width: 220px;*/
+    min-width: 120px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 14px !important;
+  }
+  
+  .text-font, .text-font span, .text-font a {
+    font-size: 14px !important;
+  }
+  .card-item-st {
+    display: contents;
+  }
+  .card-item-st {
+    text-align: left;
+    padding: 10px 0 10px 15px;
+  }
+  .card-content-service {
+    padding: 15px;
+  }
+  .card-content-service > div > div > div{
+    text-align: left;
+    padding-left: 15px;
+  }
+  .el-menu-card {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .card-notification > div, .card-file > div {
+    margin-left: 40px;
+  }
+  .card-notification div div {
+    text-align: left;
+    padding: 15px 0  15px;
+  }
+  .card-file div div:first-child {
+    text-align: left;
+    padding: 15px 0  15px;
+  }
+  .card-file div div:first-child span {
+    margin-top: 23px;
+  }
+  .card-content-service .btn-st button{
+    margin: 0 !important;
+  }
+  .card-content-service .btn-st .v-btn > div {
+    margin-top: -5px;
+  }
+  .service-card-style {
+    margin-bottom: 15px;
+  }
+  .btn-stat {
+    margin-right: 7px;
+  }
+  .dateEndStyle {
+    opacity: 50%;
+  }
+  .unreadnotifications span {
+    font-weight: bold;
+  }
+  .service-title {
+    font-size: 20px!important;
+    font-weight: 500;
+    line-height: 1!important;
+    letter-spacing: .02em!important;
+    font-family: Roboto,sans-serif!important;
+  }
